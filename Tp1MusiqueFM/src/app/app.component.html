@@ -5,10 +5,10 @@
 </div>
 <div class="container">
   <div class="row">
-    <form (ngSubmit)="searchArtist()" *ngIf="!result">
+    <form (ngSubmit)="searchArtist()">
       <input type="text" name="artistName" [(ngModel)]="artist" class="form-control" placeholder="Nom d'un artiste">
       <input type="submit" value="Rechercher l'artiste" class="btn btn-light">
     </form>
-
+    
   </div>
 </div>
