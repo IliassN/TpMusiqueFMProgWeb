@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row text-center">
+  <div class="row">
     <h1> Recherche artiste</h1>
   </div>
 </div>
@@ -9,6 +9,28 @@
       <input type="text" name="artistName" [(ngModel)]="artist" class="form-control" placeholder="Nom d'un artiste">
       <input type="submit" value="Rechercher l'artiste" class="btn btn-light">
     </form>
-    
+
+  </div>
+</div>
+
+<div class="container" *ngIf="result">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Top Albums de {{ artist}}</h2>
+      <ul class="list-group">
+        <li *ngFor="let c of albums" class="list-group-item">
+          <div (click)="infoAlbum(c)" style="cursor: pointer;">
+            <img [src]="c.image" alt="{{c.name}}">
+            {{c.name}}
+          </div>
+          <div *ngIf="c.name == albumChoisi">
+            <h5>Pistes : </h5>
+            <ul>
+              <li *ngFor="let m of musiques">{{m}}</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
